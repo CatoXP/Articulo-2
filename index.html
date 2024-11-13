@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis del Artículo 2° - Ley General de Salud</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #009688, #004d40);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .law-text {
+            background: #e8f5e9;
+            padding: 20px;
+            border-left: 4px solid #004d40;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .chart-container {
+            margin: 20px 0;
+            height: 400px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #00796b;
+            margin: 15px 0;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .objective-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #009688;
+        }
+        
+        .highlight-box {
+            background: #e0f2f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .analysis-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .analysis-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+
+        .analysis-list li:before {
+            content: "•";
+            color: #009688;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .gender-box {
+            background: #fce4ec;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e91e63;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Artículo 2° de la Ley General de Salud</h1>
+            <p>Análisis del derecho a la protección de la salud en México</p>
+        </div>
+
+        <div class="section">
+            <h2>Texto del Artículo 2°</h2>
+            <div class="law-text">
+                <p>"El derecho a la protección de la salud tiene las siguientes finalidades:</p>
+                <p>I. El bienestar físico y mental de la persona, para contribuir al ejercicio pleno de sus capacidades;</p>
+                <p>II. La prolongación y mejoramiento de la calidad de la vida humana;</p>
+                <p>III. La protección y el acrecentamiento de los valores que coadyuven a la creación, conservación y disfrute de condiciones de salud que contribuyan al desarrollo social;</p>
+                <p>IV. La extensión de actitudes solidarias y responsables de la población en la preservación, conservación, mejoramiento y restauración de la salud;</p>
+                <p>V. El disfrute de servicios de salud y de asistencia social que satisfagan eficaz y oportunamente las necesidades de la población;</p>
+                <p>VI. El conocimiento para el adecuado aprovechamiento y utilización de los servicios de salud, y</p>
+                <p>VII. El desarrollo de la enseñanza y la investigación científica y tecnológica para la salud."</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Objetivos Fundamentales</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h3>Bienestar Integral</h3>
+                    <p>Físico y mental para el pleno desarrollo de capacidades</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Calidad de Vida</h3>
+                    <p>Prolongación y mejoramiento de la vida humana</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Desarrollo Social</h3>
+                    <p>Creación y conservación de condiciones saludables</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Acceso Universal</h3>
+                    <p>Servicios de salud eficaces y oportunos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Análisis con Perspectiva de Género</h2>
+            <div class="gender-box">
+                <h3>Implicaciones para la Equidad de Género</h3>
+                <ul class="analysis-list">
+                    <li>El artículo establece base legal para servicios de salud específicos por género</li>
+                    <li>Garantiza atención integral que incluye salud reproductiva y maternal</li>
+                    <li>Promueve investigación con perspectiva de género en salud</li>
+                    <li>Fundamenta programas específicos para necesidades de mujeres</li>
+                </ul>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="implementationChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Áreas de Implementación</h2>
+            <div class="chart-container">
+                <canvas id="coverageChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Conclusiones y Recomendaciones</h2>
+            <div class="highlight-box">
+                <h3>Fortalezas del Artículo</h3>
+                <ul class="analysis-list">
+                    <li>Base legal sólida para garantizar el derecho a la salud</li>
+                    <li>Enfoque integral que incluye prevención y atención</li>
+                    <li>Reconocimiento de la dimensión social de la salud</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Áreas de Oportunidad</h3>
+                <ul class="analysis-list">
+                    <li>Necesidad de fortalecer mecanismos de implementación</li>
+                    <li>Importancia de desarrollar políticas específicas de género</li>
+                    <li>Requerimiento de mayores recursos para cumplimiento efectivo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gráfico de implementación por área
+        const implCtx = document.getElementById('implementationChart').getContext('2d');
+        new Chart(implCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Atención Primaria', 'Salud Reproductiva', 'Salud Mental', 'Especialidades'],
+                datasets: [{
+                    label: 'Nivel de Implementación',
+                    data: [85, 72, 45, 68],
+                    backgroundColor: [
+                        '#26a69a',
+                        '#4db6ac',
+                        '#80cbc4',
+                        '#b2dfdb'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Porcentaje de Implementación'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de cobertura por grupo poblacional
+        const coverageCtx = document.getElementById('coverageChart').getContext('2d');
+        new Chart(coverageCtx, {
+            type: 'line',
+            data: {
+                labels: ['Urbano', 'Suburbano', 'Rural', 'Remoto'],
+                datasets: [{
+                    label: 'Mujeres',
+                    data: [92, 85, 65, 45],
+                    borderColor: '#e91e63',
+                    fill: false
+                }, {
+                    label: 'Hombres',
+                    data: [90, 82, 70, 50],
+                    borderColor: '#009688',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Porcentaje de Cobertura'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
